@@ -47,23 +47,21 @@ const ToDo = ({todo}) => {
         <button onClick={() => openEditform()}>
           ation
         </button>
-        {/* <style jsx>
+        <style jsx>
           {`
-            @media all and (min-width:900px){
-              .todos{
-                display:flex;
-                justify-content:space-evenly;
-                align-items: center;
-                margin: 50px 0px;
-              }
-              .profile{
-                width: 35px;
-                height: 35px;
-              }
+            .todos{
+              display:flex;
+              justify-content:space-evenly;
+              align-items: center;
+              margin: 50px 0px;
+            }
+            .profile{
+              width: 35px;
+              height: 35px;
             }
 
           `}
-        </style> */}
+        </style>
 
       </section>
   );
