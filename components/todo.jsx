@@ -47,7 +47,7 @@ const ToDo = ({todo}) => {
         <button onClick={() => openEditform()}>
           ation
         </button>
-        <style jsx>
+        {/* <style jsx>
           {`
             @media all and (min-width:900px){
               .todos{
@@ -63,7 +63,7 @@ const ToDo = ({todo}) => {
             }
 
           `}
-        </style>
+        </style> */}
 
       </section>
   );
