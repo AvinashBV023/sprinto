@@ -1,4 +1,4 @@
-import ToDo from './ToDo'
+import ToDo from './ToDo';
  
  
 const ToDoList = ({toDoList}) => {
