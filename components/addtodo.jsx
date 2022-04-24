@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
-const ToDo = ({currentTodo, handleUpdateTodo, deleteTodo}) => {
-  const [ task, setTask ] = useState(currentTodo.task);
-  const [ date, setDate ] = useState(currentTodo.date);
-  const [ priority, setPriority ] = useState(currentTodo.priority);
+const Addtodo = ({addTodo, toggleAdd}) => {
+  const [ task, setTask ] = useState(null);
+  const [ date, setDate ] = useState(null);
+  const [ priority, setPriority ] = useState(null);
 
   const priorityHandler = (e) => {
     console.log(e.target.value);
@@ -32,23 +32,23 @@ const ToDo = ({currentTodo, handleUpdateTodo, deleteTodo}) => {
     // toggleEditform();
     // console.log(priority, date, task);
     // setShow(true);
-    const todoobj = currentTodo;
+    const todoobj = {};
     if (priority) todoobj.priority = priority;
     if (date) todoobj.date = date;
     if (task) todoobj.task = task;
-    console.log(currentTodo.id, todoobj, 'currentTodo.id, todoobj');
-    handleUpdateTodo(currentTodo.id, todoobj);
+    // console.log(currentTodo.id, todoobj, 'currentTodo.id, todoobj');
+    addTodo(todoobj);
   };
 
   return (
     <section className='form_sec'>
       <form>
-        <h2>Edit Todo</h2>
-        <label htmlFor="editTodo">Edit todo: </label>
+        <h2>Add Todo</h2>
+        <label htmlFor="editTodo">Add todo: </label>
         <input
-          name="editTodo"
+          name="eaddTodo"
           type="text"
-          placeholder="Edit todo"
+          placeholder="add todo"
           value={task}
           onChange={handleEditInputChange}
         />
@@ -68,9 +68,8 @@ const ToDo = ({currentTodo, handleUpdateTodo, deleteTodo}) => {
           <label for="date">Due date</label>
           <input onChange={handleEditdateChange} value={date} type="date" id="date" name="date" />
         </div>
-        <button type="submit" onClick={(e) => handleEditFormSubmit(e)}>Update</button>
-        <button>Cancel</button>
-        <button onClick={() => deleteTodo(currentTodo.id)}>Delete</button>
+        <button type="submit" onClick={(e) => handleEditFormSubmit(e)}>Add</button>
+        <button onClick={() => toggleAdd()}>Cancel</button>
       </form>
       <style jsx>
           {`
@@ -88,4 +87,4 @@ const ToDo = ({currentTodo, handleUpdateTodo, deleteTodo}) => {
   );
 };
 
-export default ToDo;
+export default Addtodo;

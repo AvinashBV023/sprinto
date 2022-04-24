@@ -3,71 +3,71 @@
   "task": "Give dog a bath",
   "complete": true,
   "date": "2022-04-04",
-  "priority": "priority",
+  "priority": "medium",
   "assignedby": "john",
-  "assignedbto": "alice"
+  "assignedto": "alice"
 }, {
   "id": 2,
   "complete": true,
   "task": "Do the assignment",
   "date": "2022-04-04",
   "assignedby": "john",
-  "priority": "priority",
-  "assignedbto": "alice"
+  "priority": "medium",
+  "assignedto": "alice"
 }, {
   "id": 3,
   "task": "Vacuum floor",
   "complete": true,
-  "date": "2022-04-04",
+  "date": "2022-04-24",
   "assignedby": "john",
-  "priority": "priority",
-  "assignedbto": "alice"
+  "priority": "medium",
+  "assignedto": "alice"
 }, {
   "id": 4,
   "task": "Feed cat",
   "complete": true,
   "date": "2022-04-04",
   "assignedby": "john",
-  "priority": "priority",
-  "assignedbto": "alice"
+  "priority": "medium",
+  "assignedto": "alice"
 }, {
   "id": 5,
   "task": "Change light bulbs",
   "complete": true,
   "date": "2022-04-04",
   "assignedby": "john",
-  "priority": "priority",
-  "assignedbto": "alice"
+  "priority": "medium",
+  "assignedto": "alice"
 }, {
   "id": 6,
   "task": "Go to Store",
   "complete": true,
   "date": "2022-04-04",
   "assignedby": "john",
-  "priority": "priority",
-  "assignedbto": "alice"
+  "priority": "medium",
+  "assignedto": "alice"
 }, {
   "id": 7,
   "task": "Fill gas tank",
   "complete": true,
   "date": "2022-04-04",
   "assignedby": "john",
-  "priority": "priority",
-  "assignedbto": "alice"
+  "priority": "medium",
+  "assignedto": "alice"
 }, {
   "id": 8,
   "task": "Change linens",
   "complete": true,
   "date": "2022-04-04",
   "assignedby": "john",
-  "priority": "priority",
-  "assignedbto": "alice"
+  "priority": "medium",
+  "assignedto": "alice"
 }, {
   "id": 9,
   "task": "Rake leaves",
   "complete": true,
   "date": "2022-04-04",
   "assignedby": "john",
-  "priority": "priority",
-  "assignedbto": "alice"
+  "priority": "medium",
+  "assignedto": "alice"
 }]

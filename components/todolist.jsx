@@ -2,46 +2,69 @@ import { useState, useEffect } from 'react'
 import ToDo from './todo'
 import data from '../src/data.json'
 import Editform from './editform'
-
+import Addtodo from './addtodo'
  
 const ToDoList = () => {
   const [ showform, setShow ] = useState(false);
+  const [ add, setAdd ] = useState(false);
   const [todos, setTodos] = useState(data);
   const [ currentTodo, setCurrentTodo ] = useState(null);
   useEffect(() => {
-    console.log('i run');
     let  savedTodos;
     if (typeof window !== 'undefined') savedTodos = localStorage.getItem("todos");
     if (savedTodos) {
-      console.log(savedTodos, 'savedTodos123');
       setTodos(JSON.parse(savedTodos));
     } else {
-      console.log(data, 'data123');
       setTodos(data);
     }
   }, []);
   const toggleEditform = () => {
     setShow(!showform);
   };
+  const toggleAdd = () => {
+    setAdd(!add);
+  };
   const currentTodotoedit = (crnt) => {
     setCurrentTodo(crnt);
-    console.log(crnt, 'crnt33');
     toggleEditform();
+  };
+  const addTodo = (addrow) => {
+    const addrowid = todos[todos.length - 1].id + 1;
+    addrow.id = addrowid;
+    setAdd(false);
+    setTodos([...todos, addrow]);
+    localStorage.setItem("todos", JSON.stringify([...todos, addrow]));
+  };
+  const deleteTodo = (id) => {
+    console.log(id, 'id');
+    const removeItem = todos.filter((todo) => {
+      return todo.id !== id;
+    });
+    localStorage.clear();
+    localStorage.setItem("todos", JSON.stringify(removeItem));
+    setTodos(removeItem);
   };
   const handleUpdateTodo = (id, updatedTodo) => {
     localStorage.clear();
-    console.log(todos, 'todo456');
     const updatedItem = todos.map((todo) => {
       return todo.id === id ? updatedTodo : todo;
     });
-    console.log(updatedItem, 'updatedItem45565666');
     setShow(false);
     localStorage.setItem("todos", JSON.stringify(updatedItem));
-    console.log(updatedItem, 'updatedItem099');
     setTodos(updatedItem);
   };
    return (
        <div>
+          <button onClick = {() => toggleAdd(true)}>
+            Add todo
+          </button>
+          {
+            add ? (
+              <div className="form_popup">
+                <Addtodo addTodo={addTodo} toggleAdd={toggleAdd} />
+              </div>
+            ): null
+          }
           {todos.map(todo => {
               return (
                 <ToDo key={todo.id} todo={todo} currentTodotoedit={currentTodotoedit} />
@@ -51,7 +74,7 @@ const ToDoList = () => {
           {
             showform ? (
               <div className="form_popup">
-                <Editform currentTodo={currentTodo} toggleEditform={toggleEditform} handleUpdateTodo={handleUpdateTodo} />
+                <Editform currentTodo={currentTodo} toggleEditform={toggleEditform} deleteTodo={deleteTodo} handleUpdateTodo={handleUpdateTodo} />
               </div>
             ): null
           }
