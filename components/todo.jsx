@@ -1,20 +1,12 @@
-import { useState } from 'react'
 
-const ToDo = ({todo}) => {
-  const [ showform, setShow ] = useState(false);
-  const priorityHandler = (e) => {
-    console.log(e.target.value);
-  };
-  const openEditform = () => {
-    console.log('open form');
-    setShow(true);
-  }
+const ToDo = ({todo, currentTodotoedit }) => {
+
   return (
       <section className="todos">
         <p>
           {todo.task}
         </p>
-        <select onChange={priorityHandler}>
+        <select>
           Priority
           <option value={'high'}>
             High
@@ -28,7 +20,7 @@ const ToDo = ({todo}) => {
         </select>
         <div>
           <label for="birthday">Due date</label>
-          <input type="date" id="birthday" name="birthday" />
+          <input type="date" value={todo.date} id="birthday" name="birthday" />
         </div>
         <div className="createdby">
           <p>
@@ -44,8 +36,8 @@ const ToDo = ({todo}) => {
           <img className="profile" src="https://rtalk.tv/website/team/default.png" alt ="user_name img" />
 
         </div>
-        <button onClick={() => openEditform()}>
-          ation
+        <button onClick={() => {currentTodotoedit(todo)}}>
+          Edit
         </button>
         <style jsx>
           {`

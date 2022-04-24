@@ -1,14 +1,12 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { useState } from 'react'
+// import Image from 'next/image'
+// import { useState } from 'react'
 import styles from '../styles/Home.module.css'
 import Header from '../components/header'
-import data from '../src/data.json'
 import ToDoList from '../components/todolist'
 
 
 export default function Home() {
-  const [ toDoList, setToDoList ] = useState(data);
   return (
     <div className={styles.container}>
       <Head>
@@ -17,7 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <Header />
-      <ToDoList toDoList={toDoList}/>
+      <ToDoList />
     </div>
   )
 }
